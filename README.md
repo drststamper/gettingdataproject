@@ -1,6 +1,6 @@
 # gettingdataproject
 
-## getting and cleaning data course project: Introduction
+## Getting and cleaning data course project: Introduction
 
 This readme document is meant to describe thoughts, decisions and reasoning used to complete
 the course project for Getting and Cleaning Data. A description of different parts of the R-script is provided, along with mentioning of resources used and other remarks that (hopefully) help to understand my submission for this assignment. Details about variables and dataset related aspects are (also) mentioned in the Codebook file.
@@ -15,27 +15,29 @@ A final remark here is that I have chosen to put in steps that I personally unde
 
 I have divided the R script into labelled sections (<A>, <B> etc.), so I can give a detailed background for each section. Note though, that this has resulted in a rather long R-script file (kind of violating what was said about the length of proper R script files in R Programming).
 
-## The R-script, "A"- section
+## The R-script
+
+### The R-script, "A"- section
 
 This first section of my script deals with getting the data into R. As can be read, I spell out the location of each file and store it, so I can use it in the read.table() function. Although advanced ways of reading in data using that function exist (making more use of the parameters), the way I put it in is understandable for me. 
 
-## The R-script, "B"- section
+### The R-script, "B"- section
 
 Next, I focused on getting all individual parts (all the separate files) to contain 'understandable' items. This meant changing the variable values for the activities using the file provided (=activity_labels) and providing columnname(s) for the subject files data, x- and y- files data. 
 
-## The R-script, "C"- section
+### The R-script, "C"- section
 
 With the prior section of the script done, I was able to combine data. First I combined the train and test data separately by their parts (subject, y- and x-). Finally, I combined these two (test and train) using the rbind function. This yielded the 'raw' dataset from which I could extract the necessary columns.
 
 I made a decision to only change the names of the columns of my 'raw' dataset that I wanted to include in my final, tidy dataset.
 
-## The R-script, "D"- section
+### The R-script, "D"- section
 
 To determine the nr of columns to include, I have used the features-info file. In this file, it is stated that means and deviations are labelled with mean() and std() at the end. Furthermore, the file states that additional mean values, based on the angle() measurements, are present in the data. Since these means are based on a value that isn't a mean itself (angle), I have decided to exclude this from my selection. Also, columns with frequencies of a mean have been excluded, since they deal with frequencies rather than a mean. These decisions yielded a 66 + 2 (=SubjectID, Activity) columned dataset which I called 'desired_dataset'. 
 
 In the final part of this section of the script, I create a grouping by the SubjectID-Activity columns and then apply dcast() to create the required Subject-Activity-MeanPerMeasure dataset.
 
-## The R-script, "E"- section
+### The R-script, "E"- section
 
 With the D section completed, I also complete the last required step, which is creating a .txt file containing the tidy_dataset. This has 180 rows (30 subjects times 6 activities) with 68 columns (SubjectID, Activity, mean for every variable). 
 
