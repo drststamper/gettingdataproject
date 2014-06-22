@@ -13,7 +13,7 @@ Another important decision was to focus on providing guiding comments that, at f
 
 A final remark here is that I have chosen to put in steps that I personally understand: It will most likely be the case that things can be done in less lines of code, but that would be more difficult for me to understand (and explain through comments in the code). Please take this into account if you're a (very) seasoned R-programmer.
 
-I have divided the R script into labelled sections (<A>, <B> etc.), so I can give a detailed background for each section. Note though, that this has resulted in a rather long R-script file (kind of violating what was said about the length of proper R script files in R Programming).
+I have divided the R script into labelled sections (A, B etc.), so I can give a detailed background for each section. Note though, that this has resulted in a rather long R-script file (kind of violating what was said about the length of proper R script files in R Programming).
 
 ## The R-script
 
